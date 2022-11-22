@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+footer {
+  text-align: center;
+  color: rgba(33, 33, 33, 0.6);
+}
+
+.wrapper {
+  padding: 32px;
+}
+
+.container {
+  padding: 0, 160px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.subContainer {
+  width: 100%;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.team {
+  width: 100%;
+  border: 1px solid #212121;
+  font-size: 24px;
+}
+
+.team a {
+  text-align: center;
+  display: block;
+  padding: 16px 24px;
+  text-decoration: none;
+  color: #212121;
+  border: 0.2px solid #212121;
+}
