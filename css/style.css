@@ -3,6 +3,10 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 footer {
   text-align: center;
   color: rgba(33, 33, 33, 0.6);
