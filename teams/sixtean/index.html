@@ -2,14 +2,69 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
-    <title>情報可視化実験 2022 作品 team Hoge</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="">
+  <link rel="stylesheet" type="text/css" href="./assets/css/common.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/top.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/map.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/sidebar.css">
+  <!-- <link rel="canonical" href="https://XXXXXXXXXXXXXXXXXXX.com"> -->
+  <title>SixTean</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="./d3.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+  <script type="text/javascript" src="./d3.js"></script>
+  <script src="assets/js/top.js"></script>
 </head>
 
-<body>
-
-    <h1>これはダミーです</h1>
-
+<body ontouchstart="";>
+  <header id="site-header"></header>
+  <main>
+    <div class="wrapper">
+      <div id="map"></div>
+      <div id="sidebar"></div>
+    </div>
+    <div id="content">
+      <h2 id="how_to_use">使い方</h2>
+      <p></p>
+      <h2 id="tech">使用した技術</h2>
+      <h3>ライブラリ</h3>
+      <ul>
+        <li>
+          <h4>d3.js</h4>
+          <p>地図上に表示するsvgの生成</p>
+        </li>
+        <li>
+          <h4>jquery</h4>
+          <p>javascriptの遅延読み込み、ハンバーガーボタンの作成</p>
+        </li>
+        <li>
+          <h4>leaflet</h4>
+          <p>地図の描画</p>
+        </li>
+      </ul>
+      <h3>データ</h3>
+      <ul>
+        <li>
+          <h4>Open Street Map</h4>
+          <p>座標データ</p>
+        </li>
+        <li>
+          <h4>stamen</h4>
+          マップタイル
+        </li>
+      </ul>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
 </body>
 
 </html>
