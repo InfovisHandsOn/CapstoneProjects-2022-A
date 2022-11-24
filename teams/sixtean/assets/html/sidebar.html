@@ -1,8 +1,16 @@
-<p>表示する色を選択:</p>
-<div>
-    <input type="color" id="input_color" value="#e66465">
-    <!--<label for="head">Head</label>-->
-</div>
+<ul class="colorpicker">
+    <li>
+        <span>表示する色を選択</span>
+        <input type="color" id="input_color" value="#e66465" style="display:none;vertical-align:middle;">
+        <label for="input_color" id="input_color_label" style="display:inline-block;width:50px;height:50px;
+        background:#e66465;border-radius:50px;vertical-align:middle;margin-left:70px;"></label>
+    </li>
+</ul>
+<ul class="parent">
+    <li>
+    <span>表示する項目を選択</span>
+    </li>
+</ul>
 <script type="text/javascript">
 
     function tree(selection) {
@@ -56,7 +64,7 @@
     }
 
     function renderNode(selection, rcd) {
-        if (rcd.parent != "root") {
+        if ((rcd.parent != "root") && (rcd.id != "root")) {
             selection.append("span")
                 .attr("class", "item")
                 .text(rcd.name)
@@ -83,13 +91,13 @@
                 .attr("class", "wrapper")
                 .append("button")
                 .attr("type", "button")
-                .attr("id", rcd.id + "_pink")
-                .attr("class", "btn-circle-3d")
+                .attr("id", rcd.id + "_red")
+                .attr("class", "btn-circle-3d-red")
                 .on("click", function (event) {
-                    if (this.classList.contains("btn-circle-3d")) {
+                    if (this.classList.contains("btn-circle-3d-red")) {
                         d3.select(this)
-                            .classed("btn-circle-3d", false)
-                            .classed("btn-circle-selected", true);
+                            .classed("btn-circle-3d-red", false)
+                            .classed("btn-circle-selected-red", true);
 
                         d3.select("#" + rcd.id + "_blue")
                             .classed("btn-circle-selected-blue", false)
@@ -99,18 +107,24 @@
                             .classed("btn-circle-selected-green", false)
                             .classed("btn-circle-3d-green", true)
 
-                        d3.select("#"+rcd.id+"_yellow")
-                            .classed("btn-circle-selected-yellow", false)
-                            .classed("btn-circle-3d-yellow", true)
+                        d3.select("#"+rcd.id+"_pink")
+                            .classed("btn-circle-selected-pink", false)
+                            .classed("btn-circle-3d-pink", true)
+
+                        d3.select("#"+rcd.id+"_colorpicker")
+                            .classed("btn-circle-selected-colorpicker", false)
+                            .classed("btn-circle-3d-colorpicker", true)
                     
+                        colorpicker_button = colorpicker_button.filter(item => item != rcd.index);
+
                         rcd.display = "#ff8181"
                     }
-                    else if(this.classList.contains("btn-circle-selected")) {
+                    else if(this.classList.contains("btn-circle-selected-red")) {
                         d3.select(this)
-                            .classed("btn-circle-selected", false)
-                            .classed("btn-circle-3d", true)
+                            .classed("btn-circle-selected-red", false)
+                            .classed("btn-circle-3d-red", true)
 
-                        rcd.display = "#ffffff"
+                        rcd.display = "#ffffff00"
                     }
                     update()
                 })
@@ -126,17 +140,23 @@
                             .classed("btn-circle-3d-blue", false)
                             .classed("btn-circle-selected-blue", true)
 
-                        d3.select("#" + rcd.id + "_pink")
-                            .classed("btn-circle-selected", false)
-                            .classed("btn-circle-3d", true)
+                        d3.select("#" + rcd.id + "_red")
+                            .classed("btn-circle-selected-red", false)
+                            .classed("btn-circle-3d-red", true)
 
                         d3.select("#" + rcd.id + "_green")
                             .classed("btn-circle-selected-green", false)
                             .classed("btn-circle-3d-green", true)
 
-                        d3.select("#" + rcd.id + "_yellow")
-                            .classed("btn-circle-selected-yellow", false)
-                            .classed("btn-circle-3d-yellow", true)
+                        d3.select("#" + rcd.id + "_pink")
+                            .classed("btn-circle-selected-pink", false)
+                            .classed("btn-circle-3d-pink", true)
+
+                        d3.select("#"+rcd.id+"_colorpicker")
+                            .classed("btn-circle-selected-colorpicker", false)
+                            .classed("btn-circle-3d-colorpicker", true)
+                
+                        colorpicker_button = colorpicker_button.filter(item => item != rcd.index);
 
                         rcd.display = "#5c9ee7"
                     }
@@ -145,7 +165,7 @@
                             .classed("btn-circle-selected-blue", false)
                             .classed("btn-circle-3d-blue", true)
 
-                        rcd.display = "#ffffff"
+                        rcd.display = "#ffffff00"
                     }
                     update()
                 })
@@ -165,13 +185,19 @@
                             .classed("btn-circle-selected-blue", false)
                             .classed("btn-circle-3d-blue", true)
 
-                        d3.select("#" + rcd.id + "_pink")
-                            .classed("btn-circle-selected", false)
-                            .classed("btn-circle-3d", true)
+                        d3.select("#" + rcd.id + "_red")
+                            .classed("btn-circle-selected-red", false)
+                            .classed("btn-circle-3d-red", true)
 
-                        d3.select("#" + rcd.id + "_yellow")
-                            .classed("btn-circle-selected-yellow", false)
-                            .classed("btn-circle-3d-yellow", true)
+                        d3.select("#" + rcd.id + "_pink")
+                            .classed("btn-circle-selected-pink", false)
+                            .classed("btn-circle-3d-pink", true)
+
+                        d3.select("#"+rcd.id+"_colorpicker")
+                            .classed("btn-circle-selected-colorpicker", false)
+                            .classed("btn-circle-3d-colorpicker", true)
+
+                        colorpicker_button = colorpicker_button.filter(item => item != rcd.index);
 
                         rcd.display = "#81ff8e"
                     }
@@ -180,7 +206,7 @@
                             .classed("btn-circle-selected-green", false)
                             .classed("btn-circle-3d-green", true)
 
-                        rcd.display = "#ffffff"
+                        rcd.display = "#ffffff00"
                     }
                     update()
                 })
@@ -188,13 +214,13 @@
             selection.select("div")
                 .append("button")
                 .attr("type", "button")
-                .attr("id", rcd.id + "_yellow")
-                .attr("class", "btn-circle-3d-yellow")
+                .attr("id", rcd.id + "_pink")
+                .attr("class", "btn-circle-3d-pink")
                 .on("click", function (event) {
-                    if (this.classList.contains("btn-circle-3d-yellow")) {
+                    if (this.classList.contains("btn-circle-3d-pink")) {
                         d3.select(this)
-                            .classed("btn-circle-3d-yellow", false)
-                            .classed("btn-circle-selected-yellow", true)
+                            .classed("btn-circle-3d-pink", false)
+                            .classed("btn-circle-selected-pink", true)
 
                         d3.select("#" + rcd.id + "_blue")
                             .classed("btn-circle-selected-blue", false)
@@ -204,23 +230,74 @@
                             .classed("btn-circle-selected-green", false)
                             .classed("btn-circle-3d-green", true)
 
-                        d3.select("#"+rcd.id+"_pink")
-                            .classed("btn-circle-selected", false)
-                            .classed("btn-circle-3d", true)
+                        d3.select("#"+rcd.id+"_red")
+                            .classed("btn-circle-selected-red", false)
+                            .classed("btn-circle-3d-red", true)
+
+                        d3.select("#"+rcd.id+"_colorpicker")
+                            .classed("btn-circle-selected-colorpicker", false)
+                            .classed("btn-circle-3d-colorpicker", true)
                     
+                        colorpicker_button = colorpicker_button.filter(item => item != rcd.index);
+
                         rcd.display = "#e05ce7"
                     }
-                    else if(this.classList.contains("btn-circle-selected-yellow")) {
+                    else if(this.classList.contains("btn-circle-selected-pink")) {
                         d3.select(this)
-                            .classed("btn-circle-selected-yellow", false)
-                            .classed("btn-circle-3d-yellow", true)
+                            .classed("btn-circle-selected-pink", false)
+                            .classed("btn-circle-3d-pink", true)
                         
-                        rcd.display = "#ffffff"
+                        rcd.display = "#ffffff00"
+                    }
+                    update()
+                })
+
+            selection.select("div")
+                .append("button")
+                .attr("type", "button")
+                .attr("name", "colorpickers")
+                .attr("id", rcd.id + "_colorpicker")
+                .attr("class", "btn-circle-3d-colorpicker")
+                .style("background", display_color)
+                .on("click", function (event) {
+                    if (this.classList.contains("btn-circle-3d-colorpicker")) {
+                        d3.select(this)
+                            .classed("btn-circle-3d-colorpicker", false)
+                            .classed("btn-circle-selected-colorpicker", true)
+
+                        d3.select("#" + rcd.id + "_blue")
+                            .classed("btn-circle-selected-blue", false)
+                            .classed("btn-circle-3d-blue", true)
+
+                        d3.select("#" + rcd.id + "_green")
+                            .classed("btn-circle-selected-green", false)
+                            .classed("btn-circle-3d-green", true)
+
+                        d3.select("#"+rcd.id+"_red")
+                            .classed("btn-circle-selected-red", false)
+                            .classed("btn-circle-3d-red", true)
+
+
+                        d3.select("#" + rcd.id + "_pink")
+                            .classed("btn-circle-selected-pink", false)
+                            .classed("btn-circle-3d-pink", true)
+                    
+                        colorpicker_button.push(rcd.index);
+
+                        rcd.display = display_color
+                    }
+                    else if(this.classList.contains("btn-circle-selected-colorpicker")) {
+                        d3.select(this)
+                            .classed("btn-circle-selected-colorpicker", false)
+                            .classed("btn-circle-3d-colorpicker", true)
+                        
+                        colorpicker_button = colorpicker_button.filter(item => item != rcd.index);
+                        rcd.display = "#ffffff00"
                     }
                     update()
                 })
         }
-        else if (rcd.parent == "root") {
+        else {
             selection.append("span")
                 .text(rcd.name);
         }
@@ -229,9 +306,19 @@
     //colorpickerの値が変更されるたびにdisplay_colorの値を変更する
     var colorpicker = document.getElementById("input_color");
     colorpicker.addEventListener("input", function (event) {
-        //console.log(colorpicker.value); 
         display_color = colorpicker.value
-        //console.log(display_color)
+
+        d3.select("#input_color_label")
+            .style("background", null)
+            .style("background", display_color)
+
+        var colorpickers_3d = document.getElementsByName("colorpickers")
+        d3.selectAll(colorpickers_3d)
+            .style("background", null)
+            .style("background", display_color)
+
+        colorpicker_button.forEach(element => data[element].display = display_color)
+
         update()
     });
 
